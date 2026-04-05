@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balaji Computer Center</title>
+  <style>
+    body { font-family: Arial; background:#eef2f7; margin:0; }
+    header { background:#007bff; color:white; padding:15px; text-align:center; }
+    .container { width: 350px; margin: 50px auto; background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);} 
+    input { width:100%; padding:10px; margin:10px 0; }
+    button { width:100%; padding:10px; background:#007bff; color:white; border:none; cursor:pointer; }
+    .hidden { display:none; }
+    footer { text-align:center; padding:10px; margin-top:20px; color:#555; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Balaji Computer Center</h1>
+  <p>Student Task Portal </p>
+</header>
+
+
+<br><br>
+<center><font size="8px"> Welcome Task Status </font>
+<br>
+<hr>
+<marquee><font color="red"> Har Student ko Computer course se Judi Hue ak Task Complter Karna Hoga</font></marquee><hr>
+
+<div class="container" id="loginBox">
+  <h2>Student Login</h2>
+  <input type="text" id="username" placeholder="Enter Username">
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<div class="container hidden" id="dashboard">
+  <h2>Student Details</h2>
+
+  <p><b>Name:</b> <span id="name"></span></p>
+  <p><b>Course:</b> <span id="class"></span></p>
+  <p><b>Project:</b> <span id="roll"></span></p>
+  <p><b>Status:</b> <span id="status"></span></p>
+  <button onclick="logout()">Logout</button>
+</div>
+
+
+
+<script>
+  const students = [
+    { username: "student1", password: "1234", name: "John Doe", class: "Basic Computer", roll: "data entery", status: "85" },
+    { username: "student2", password: "5678", name: "Rahul Sharma", class: "Tally Course", roll: "102", email: "rahul@example.com" },
+    { username: "student3", password: "9999", name: "Amit Kumar", class: "DCA", roll: "103", email: "amit@example.com" }
+  ];
+
+  function login(){
+    var user = document.getElementById('username').value;
+    var pass = document.getElementById('password').value;
+
+    const found = students.find(s => s.username === user && s.password === pass);
+
+    if(found){
+      document.getElementById('loginBox').classList.add('hidden');
+      document.getElementById('dashboard').classList.remove('hidden');
+
+      document.getElementById('name').innerText = found.name;
+      document.getElementById('class').innerText = found.class;
+      document.getElementById('roll').innerText = found.roll;
+      document.getElementById('status').innerText = found.status;
+    } else {
+      alert("Invalid Login");
+    }
+  }
+
+  function logout(){
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('loginBox').classList.remove('hidden');
+  }
+</script>
+<marquee> website open  nahin ho raha  ya koi login karna mein problem aa rhai hai to apna center mein contact kr </marquee>
+<br>
+<center> 📞  9971800189  </center>
+<footer>
+  <p>© 2026 Balaji Computer Center | All Rights Reserved</p>
+</footer>
+</body>
+</html>
